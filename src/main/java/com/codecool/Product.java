@@ -35,11 +35,11 @@ class Product{
         return productCategory;
     }
 
-    public List<Product> getAllProducts(){
+    public static List<Product> getAllProducts(){
         return productList;
     }
 
-    public List<Product> getAllProductsByCategory(ProductCategory productCategory){
+    public static List<Product> getAllProductsByCategory(ProductCategory productCategory){
         List<Product> productsByCategoryList = new ArrayList<Product>();
 
         for (Product product : productList){

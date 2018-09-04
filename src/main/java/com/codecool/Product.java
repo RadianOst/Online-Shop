@@ -10,6 +10,9 @@ class Product{
     private Integer ID;
     private static List<Product> productList = new ArrayList<Product>();
 
+    private final int MAX_NAME_WIDTH = 15;
+    private final int MAX_PRICE_WIDTH = 6;
+
     public Product(String name, Float defaultPrice, ProductCatgory productCategory){
         this.name = name;
         this.defaultPrice = defaultPrice;
@@ -20,7 +23,11 @@ class Product{
 
     @Override
     public String toString() {
-        return String.format("%s", name);
+        StringBuilder sBuilder = new StringBuilder();
+        sBuilder.append(String.format("%-" + MAX_NAME_WIDTH + "s", name));
+        sBuilder.append(String.format("|Price: %-" + MAX_PRICE_WIDTH + "%f", defaultPrice));
+        sBuilder.append(String.format("|%s", productCategory.toString()));
+        return sBuilder.toString();
     }
 
     public List<Product> getAllProducts(){

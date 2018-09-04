@@ -13,7 +13,7 @@ class Product{
     private final int MAX_NAME_WIDTH = 15;
     private final int MAX_PRICE_WIDTH = 6;
 
-    public Product(String name, Float defaultPrice, ProductCatgory productCategory){
+    public Product(String name, Float defaultPrice, ProductCategory productCategory){
         this.name = name;
         this.defaultPrice = defaultPrice;
         this.productCategory = productCategory;
@@ -35,7 +35,7 @@ class Product{
     }
 
     public List<Product> getAllProductsBy(ProductCategory productCategory){
-
+        return null;
     }
 
     private Integer generateID(){

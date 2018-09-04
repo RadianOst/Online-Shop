@@ -28,6 +28,6 @@ class ProductCategory{
     }
 
     private Integer generateID(){
-        return productCategoryList.size();
+        return productCategoryList.size() + 1000;
     }
 }

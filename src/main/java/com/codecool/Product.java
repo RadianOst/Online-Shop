@@ -10,6 +10,7 @@ class Product{
     private Integer ID;
     private static List<Product> productList = new ArrayList<Product>();
 
+    private final int ID_TEXT_WIDTH = 4;
     private final int NAME_TEXT_WIDTH = 15;
     private final int PRICE_TEXT_WIDTH = 6;
     private final int CATEGORY_TEXT_WIDTH = 15;
@@ -34,16 +35,15 @@ class Product{
         return productCategory;
     }
 
-    public List<Product> getAllProducts(){
+    public static List<Product> getAllProducts(){
         return productList;
     }
 
-    public List<Product> getAllProductsByCategory(ProductCategory productCategory){
-        String patternProductCategoryName = productCategory.getName();
+    public static List<Product> getAllProductsByCategory(ProductCategory productCategory){
         List<Product> productsByCategoryList = new ArrayList<Product>();
 
         for (Product product : productList){
-            if (product.getProductCategory().getName().equals(patternProductCategoryName)){
+            if (product.getProductCategory().equals(productCategory)){
                 productsByCategoryList.add(product);
             }
         }
@@ -54,6 +54,7 @@ class Product{
     @Override
     public String toString() {
         StringBuilder sBuilder = new StringBuilder();
+        sBuilder.append(String.format("ID:%" + ID_TEXT_WIDTH + "d", ID));
         sBuilder.append(String.format("%-" + NAME_TEXT_WIDTH + "s", name));
         sBuilder.append(String.format(" | Price: %" + PRICE_TEXT_WIDTH + ".2f zl", price));
         sBuilder.append(String.format(" | %-" + CATEGORY_TEXT_WIDTH + "s", productCategory.toString()));

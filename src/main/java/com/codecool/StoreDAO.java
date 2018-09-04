@@ -23,13 +23,13 @@ public class StoreDAO {
                 
                 String nameOfProduct = "";
                 Float price = 0;
-                ProdactCategory prodactCategory = null;
+                ProductCatgory prodactCatgory = null;
 
                 String[] productData = line.split("\t");
     
                 nameOfProduct = productData[0];
                 price = productData[1];
-                prodactCategory = productData[2];
+                prodactCatgory = productData[2];
 
                 Product newProduct = new Product(nameOfProduct, price, prodactCategory);
 
@@ -46,6 +46,39 @@ public class StoreDAO {
     public List <Product> getListOfProducts(){
         return listOfProduct;
     }
+
+    public void exportToTXT(){
+        
+        for ( int i = 0; i <listOfProduct.size(); i++  ){
+            
+            Product tempProduct = listOfProduct.get(i);
+
+            String tempName = tempProduct.getName();
+            Float tempprice = tempProduct.getPrice();
+            ProductCatgory tempProdactCatgory = tempProduct.getProdactCatgory();
+
+            String str = tempName + String.valueOf(tempprice) + tempProdactCatgory.getProdactCatgory();
+
+            try {
+                
+                File newTextFile = new File("products.txt");
+                FileWriter fw = new FileWriter(newTextFile);
+                fw.write(str);
+                fw.close();
+    
+            } catch (IOException iox) {
+                //do stuff with exception
+                iox.printStackTrace();
+            }
+
+
+
+        }
+       
+
+
+    }
+
 
 
 

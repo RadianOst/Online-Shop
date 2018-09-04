@@ -1,3 +1,4 @@
+package com.codecool;
 
 import java.util.*;
 import java.io.BufferedReader;
@@ -22,18 +23,18 @@ public class StoreDAO {
             while (line != null) {
                 
                 String nameOfProduct = "";
-                Float price = 0;
-                ProdactCategory prodactCategory = null;
+                Float price = Float.valueOf(0);
+                ProductCategory productCategory = null;
 
                 String[] productData = line.split("\t");
     
                 nameOfProduct = productData[0];
-                price = productData[1];
-                prodactCategory = productData[2];
+                price = Float.parseFloat(productData[1]);
+                // productCategory = productData[2];
 
-                Product newProduct = new Product(nameOfProduct, price, prodactCategory);
+                // Product newProduct = new Product(nameOfProduct, price, productCategory);
 
-                listOfProduct.add(newProduct); 
+                // listOfProduct.add(newProduct); 
             }
             br.close();
             

@@ -38,7 +38,7 @@ class Product{
         return productList;
     }
 
-    public List<Product> getAllProductsBy(ProductCategory productCategory){
+    public List<Product> getAllProductsByCategory(ProductCategory productCategory){
         String patternProductCategoryName = productCategory.getName();
         List<Product> productsByCategoryList = new ArrayList<Product>();
 

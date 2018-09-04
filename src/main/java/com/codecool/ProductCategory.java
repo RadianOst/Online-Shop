@@ -18,7 +18,7 @@ class ProductCategory{
         return name;
     }
 
-    public List<ProductCategory> getProductCategoryList(){
+    public static List<ProductCategory> getProductCategoryList(){
         return productCategoryList;
     }
 

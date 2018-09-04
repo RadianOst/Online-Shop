@@ -4,6 +4,8 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.Writer;
+import java.io.FileWriter;
 
 
 public class StoreDAO {
@@ -28,7 +30,7 @@ public class StoreDAO {
                 String[] productData = line.split("\t");
     
                 nameOfProduct = productData[0];
-                price = productData[1];
+                price = Float.valu productData[1];
                 prodactCatgory = productData[2];
 
                 Product newProduct = new Product(nameOfProduct, price, prodactCategory);

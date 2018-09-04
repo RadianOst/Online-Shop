@@ -6,12 +6,20 @@ import java.util.List;
 class ProductCategory{
     private String name;
     private Integer ID;
-    private static List<ProductCategory> categoryList = new ArrayList<ProductCategory>();
+    private static List<ProductCategory> productCategoryList = new ArrayList<ProductCategory>();
 
     public ProductCategory(String name){
         this.name = name;
         ID = generateID();
-        categoryList.add(this);
+        productCategoryList.add(this);
+    }
+
+    public String getName(){
+        return name;
+    }
+
+    public static List<ProductCategory> getProductCategoryList(){
+        return productCategoryList;
     }
 
     @Override
@@ -20,6 +28,6 @@ class ProductCategory{
     }
 
     private Integer generateID(){
-        return categoryList.size();
+        return productCategoryList.size();
     }
 }

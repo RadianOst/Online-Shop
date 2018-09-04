@@ -1,16 +1,15 @@
+package com.codecool;
 
 import java.util.*;
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
-import java.io.Writer;
-import java.io.FileWriter;
+import java.io.*;
+
 
 
 public class StoreDAO {
 
+    private Product newProduct;
     private List <Product> listOfProduct = new ArrayList<Product>();
+    
 
     public StoreDAO(){
         loadTXT();
@@ -24,21 +23,32 @@ public class StoreDAO {
             while (line != null) {
                 
                 String nameOfProduct = "";
-                Float price = 0;
-                ProductCatgory prodactCatgory = null;
+                Float price = Float.valueOf(0);
+                String categoryOfProduct = null;
 
                 String[] productData = line.split("\t");
     
                 nameOfProduct = productData[0];
-                price = Float.valu productData[1];
-                prodactCatgory = productData[2];
+                price = Float.parseFloat(productData[1]);
+                categoryOfProduct = productData[2];
 
-                Product newProduct = new Product(nameOfProduct, price, prodactCategory);
+                List<ProductCategory> tempListProductCategory = ProductCategory.getProductCategoryList();
 
-                listOfProduct.add(newProduct); 
+                String tempName = "";
+                for ( int i =0; i <tempListProductCategory.size(); i++ ){
+                    tempName =  tempListProductCategory.get(i).getName();
+                    if ( tempName != categoryOfProduct ){
+                        ProductCategory tempProductCategory = new ProductCategory(categoryOfProduct);
+                        newProduct = new Product(nameOfProduct, price, tempProductCategory);
+                        listOfProduct.add(newProduct); 
+                    }else{
+                        ProductCategory tempProductCategory = tempListProductCategory.get(i);
+                        newProduct = new Product(nameOfProduct, price, tempProductCategory);
+                        listOfProduct.add(newProduct); 
+                    }
+                }
             }
             br.close();
-            
         } catch(IOException e){
             System.out.println("File not found");
         }
@@ -50,39 +60,24 @@ public class StoreDAO {
     }
 
     public void exportToTXT(){
-        
+        StringBuilder sBuilder = new StringBuilder();
         for ( int i = 0; i <listOfProduct.size(); i++  ){
-            
             Product tempProduct = listOfProduct.get(i);
-
             String tempName = tempProduct.getName();
             Float tempprice = tempProduct.getPrice();
-            ProductCatgory tempProdactCatgory = tempProduct.getProdactCatgory();
-
-            String str = tempName + String.valueOf(tempprice) + tempProdactCatgory.getProdactCatgory();
-
-            try {
-                
-                File newTextFile = new File("products.txt");
-                FileWriter fw = new FileWriter(newTextFile);
-                fw.write(str);
-                fw.close();
-    
-            } catch (IOException iox) {
-                //do stuff with exception
-                iox.printStackTrace();
-            }
-
-
-
+            String tempProdactCategory = tempProduct.getProductCategory().getName();
+            String str = tempName + String.valueOf(tempprice) + tempProdactCategory;
+            sBuilder.append(str);
+            sBuilder.append("\n");
         }
-       
-
-
+        String fullTExt = sBuilder.toString();
+        try {
+            FileWriter fw = new FileWriter("products.txt");
+            fw.write(fullTExt);
+            fw.close();
+        } catch (IOException iox) {
+            iox.printStackTrace();
+        }
     }
-
-
-
-
 
 }

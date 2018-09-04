@@ -5,38 +5,59 @@ import java.util.ArrayList;
 
 class Product{
     private String name;
-    private Float defaultPrice;
+    private Float price;
     private ProductCategory productCategory;
     private Integer ID;
     private static List<Product> productList = new ArrayList<Product>();
 
-    private final int MAX_NAME_WIDTH = 15;
-    private final int MAX_PRICE_WIDTH = 6;
-    private final int MAX_CATEGORY_WIDTH = 10;
+    private final int NAME_TEXT_WIDTH = 15;
+    private final int PRICE_TEXT_WIDTH = 6;
+    private final int CATEGORY_TEXT_WIDTH = 15;
 
     public Product(String name, Float defaultPrice, ProductCategory productCategory){
         this.name = name;
-        this.defaultPrice = defaultPrice;
+        price = defaultPrice;
         this.productCategory = productCategory;
         ID = generateID();
         productList.add(this);
     }
 
-    @Override
-    public String toString() {
-        StringBuilder sBuilder = new StringBuilder();
-        sBuilder.append(String.format("%-" + MAX_NAME_WIDTH + "s", name));
-        sBuilder.append(String.format(" | Price: %" + MAX_PRICE_WIDTH + ".2f zl", defaultPrice));
-        sBuilder.append(String.format(" | %-" + MAX_CATEGORY_WIDTH + "s", productCategory.toString()));
-        return sBuilder.toString();
+    public String getName(){
+        return name;
+    }
+
+    public Float getPrice(){
+        return price;
+    }
+
+    public ProductCategory getProductCategory(){
+        return productCategory;
     }
 
     public List<Product> getAllProducts(){
         return productList;
     }
 
-    public List<Product> getAllProductsBy(ProductCategory productCategory){
-        return null;
+    public List<Product> getAllProductsByCategory(ProductCategory productCategory){
+        String patternProductCategoryName = productCategory.getName();
+        List<Product> productsByCategoryList = new ArrayList<Product>();
+
+        for (Product product : productList){
+            if (product.getProductCategory().getName().equals(patternProductCategoryName)){
+                productsByCategoryList.add(product);
+            }
+        }
+
+        return productsByCategoryList;
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sBuilder = new StringBuilder();
+        sBuilder.append(String.format("%-" + NAME_TEXT_WIDTH + "s", name));
+        sBuilder.append(String.format(" | Price: %" + PRICE_TEXT_WIDTH + ".2f zl", price));
+        sBuilder.append(String.format(" | %-" + CATEGORY_TEXT_WIDTH + "s", productCategory.toString()));
+        return sBuilder.toString();
     }
 
     private Integer generateID(){

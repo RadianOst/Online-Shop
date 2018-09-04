@@ -1,0 +1,6 @@
+butter	100 dairy
+milk	200	dairy
+bread	50	bread
+lamb	20	meat
+water	10	drink
+juice	5	drink

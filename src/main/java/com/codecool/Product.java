@@ -12,6 +12,7 @@ class Product{
 
     private final int MAX_NAME_WIDTH = 15;
     private final int MAX_PRICE_WIDTH = 6;
+    private final int MAX_CATEGORY_WIDTH = 10;
 
     public Product(String name, Float defaultPrice, ProductCategory productCategory){
         this.name = name;
@@ -25,8 +26,8 @@ class Product{
     public String toString() {
         StringBuilder sBuilder = new StringBuilder();
         sBuilder.append(String.format("%-" + MAX_NAME_WIDTH + "s", name));
-        sBuilder.append(String.format("|Price: %-" + MAX_PRICE_WIDTH + "%f", defaultPrice));
-        sBuilder.append(String.format("|%s", productCategory.toString()));
+        sBuilder.append(String.format(" | Price: %" + MAX_PRICE_WIDTH + ".2f zl", defaultPrice));
+        sBuilder.append(String.format(" | %-" + MAX_CATEGORY_WIDTH + "s", productCategory.toString()));
         return sBuilder.toString();
     }
 

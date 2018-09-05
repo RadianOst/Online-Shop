@@ -12,47 +12,45 @@ public class StoreDAO {
     private Product newProduct;
     private List <Product> listOfProduct = new ArrayList<Product>();
     
-
     public StoreDAO(){
         loadTXT();
     }
 
     public void loadTXT(){
-
-        ClassLoader classLoader = getClass().getClassLoader();
-        File fileData = new File(classLoader.getResource("products.txt").getFile());
-        
         try{
-            BufferedReader br = new BufferedReader(new FileReader(fileData));
-            String line = br.readLine();
-           
-            while (line != null) {
+            BufferedReader br = new BufferedReader(new InputStreamReader(this.getClass().getResourceAsStream("/" + "products.txt"), "UTF-8"));
+            String line = null;
+
+            while ((line = br.readLine()) != null) {
                 
                 String nameOfProduct = "";
-                Float price = Float.valueOf(0);
                 String categoryOfProduct = null;
+                String[] productData = line.split("-");
 
-                String[] productData = line.split("\t");
-    
                 nameOfProduct = productData[0];
-                price = Float.parseFloat(productData[1]);
+                Float price = Float.valueOf(productData[1]);
                 categoryOfProduct = productData[2];
 
                 List<ProductCategory> tempListProductCategory = ProductCategory.getProductCategoryList();
 
                 String tempName = "";
+
                 for ( int i =0; i <tempListProductCategory.size(); i++ ){
                     tempName =  tempListProductCategory.get(i).getName();
                     if ( tempName != categoryOfProduct ){
                         ProductCategory tempProductCategory = new ProductCategory(categoryOfProduct);
                         newProduct = new Product(nameOfProduct, price, tempProductCategory);
                         listOfProduct.add(newProduct); 
+                        System.out.println( " test 100 ");
+                        
                     }else{
                         ProductCategory tempProductCategory = tempListProductCategory.get(i);
                         newProduct = new Product(nameOfProduct, price, tempProductCategory);
                         listOfProduct.add(newProduct); 
+                        System.out.println( " test 200 ");
                     }
                 }
+              
             }
             br.close();
         } catch(IOException e){
@@ -64,9 +62,6 @@ public class StoreDAO {
     public List <Product> getListOfProducts(){
         return listOfProduct;
     }
-
-    
-
 
     public void exportToTXT(){
         StringBuilder sBuilder = new StringBuilder();
@@ -88,6 +83,17 @@ public class StoreDAO {
         } catch (IOException iox) {
             iox.printStackTrace();
         }
+    }
+
+    public String toString(){
+        String daoString = "";
+        int index = 1;
+        for ( Product product : listOfProduct ){
+            String temString = product.toString();
+            daoString += index+ " "+temString + "\n";
+            index++;
+        }
+        return daoString;
     }
 
 }

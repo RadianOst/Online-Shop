@@ -3,7 +3,8 @@ package com.codecool;
 // import com.codecool.order.process.CheckoutProcess;
 // import com.codecool.order.process.PayProcess;
 
-import com.codecool.view.StoreView;
+import com.codecool.view.*;
+import com.codecool.StoreDAO;
 
 /**
  * Hello world!
@@ -15,11 +16,15 @@ public class Main
     {
         System.out.println( "Hello World!" );
         
-        View storeView = new StoreView();
-
+        StoreView storeView = new StoreView();
+        StoreDAO storeDao = new StoreDAO();
         storeView.printView();
         storeView.printMenu();
+
         
- 
+
+        System.out.println(storeDao.toString());
+      
+        
     }
 }

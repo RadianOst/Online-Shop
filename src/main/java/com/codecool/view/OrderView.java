@@ -14,4 +14,13 @@ public class OrderView extends View{
         this.order = order;
     }
 
+    public  void printView(){
+
+    }
+
+    public  void printMenu(){
+
+    }
+
+
 }

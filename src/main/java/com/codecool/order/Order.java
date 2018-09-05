@@ -1,5 +1,6 @@
 package com.codecool.order;
 
+import com.codecool.Basket;
 import com.codecool.order.process.CheckoutProcess;
 import com.codecool.order.process.PayProcess;
 
@@ -68,7 +69,7 @@ public class Order implements Orderable {
     @Override
     public String toString() {
         String orderToString = "";
-        orderToString += "Ordered items: " + getBasket().getListOfItems() + "\n";
+        orderToString += "Ordered items: " + getBasket().toString() + "\n";
         orderToString += "Order's value: " + getOrderValue() + " PLN\n";
         orderToString += "Status: " + getStatus() + "\n";
         return orderToString;

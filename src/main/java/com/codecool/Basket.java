@@ -55,12 +55,17 @@ public class Basket {
 
     public String toString(){
         String basketString = "";
+        int index = 1;
         for ( Product product : productList ){
             String temString = product.toString();
-            basketString = basketString + temString + "\n";
+            basketString = index + " " + basketString + temString + "\n";
+            index++;
         }
         return basketString;
     } 
 
+    public int getBasketValue(){
+        return 0;
+    }
 
 }

@@ -3,7 +3,7 @@ package com.codecool;
 import java.util.List;
 import java.util.ArrayList;
 
-class Product{
+public class Product{
     private String name;
     private Float price;
     private ProductCategory productCategory;

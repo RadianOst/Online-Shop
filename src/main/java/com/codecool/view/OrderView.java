@@ -101,8 +101,10 @@ public class OrderView extends View {
             this.orderController.printOrder();
             break;
         case 4:
+            this.orderController.checkoutAndPay();
             break;
         case 5:
+            exitQuestion(choice);
             break;
         default:
             System.out.println("Unknown choice!");
@@ -110,6 +112,34 @@ public class OrderView extends View {
 
         return choice;
 
+    }
+
+    public void printOrderValue() {
+        System.out.println("Your order value: " + this.order.getOrderValue());
+    }
+
+    public String getCustomerData() {
+        System.out.println("Type your name and surname: ");
+        String name = getInput();
+        System.out.println("Type your address: ");
+        String adrress = getInput();
+        System.out.println("Type your email: ");
+        String email = getInput();
+
+        return name + "\n" + adrress + "\n" + email;
+    }
+
+    public int getCreditCardNumber() {
+        System.out.println("Type your credit card's number: ");
+        int creditCardNumber = getIntInput();
+        return creditCardNumber;
+    }
+
+    public void exitQuestion(int choice) {
+        System.out.println("All unprocessed orders will be lost! Are you sure? (type 'yes' to confirm)");
+        String answer = getInput().trim().toLowerCase();
+        if (!answer.equals("yes"))
+            choice = 0;
     }
 
 }

@@ -47,7 +47,8 @@ class OnlineShop{
             case 4:
                 break;
             case 5:
-                isRunning = false; 
+                isRunning = false;
+                view.print("Exit"); 
                 break;
         }
     }

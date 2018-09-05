@@ -41,11 +41,11 @@ public class View {
     }
 
     public void waitForSeconds(int amount){
-        try{
-            TimeUnit.SECONDS.wait(amount);
-        } catch (InterruptedException e){
-            e.printStackTrace();
-        }
+        // try{
+        //     TimeUnit.SECONDS.wait(amount);
+        // } catch (InterruptedException e){
+        //     e.printStackTrace();
+        // }
     }
 
     public String getInput() {
@@ -56,21 +56,22 @@ public class View {
     }
 
     public int getIntInput() {
-        Scanner scanner = new Scanner(System.in);
-        boolean isInt = false;
-        int integer = 1;
+        Scanner intScanner = new Scanner(System.in);
+        String intString;
+        boolean isNotInteger = true;
+        int number = 0;
 
-        while(!isInt) {
-            String input = scanner.nextLine(); 
+        while (isNotInteger) {
+            intString = intScanner.nextLine();
+
             try {
-                integer = Integer.parseInt(input);
-                isInt = true;
+                number = Integer.parseInt(intString);
+                isNotInteger = false;
             } catch (NumberFormatException e) {
-                System.out.println("Type a number!");
+                System.out.println("Error! Type an integer...");
+                isNotInteger = true;
             }
         }
-        scanner.close();
-
-        return integer;
+        return number;
     }
 }

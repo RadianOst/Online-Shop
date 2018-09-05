@@ -1,26 +1,18 @@
 package com.codecool.view;
 
-import java.util.ArrayList;
-
-import com.codecool.StoreDAO;
 import com.codecool.order.Order;
-import com.codecool.*;
 
-public class OrderView extends View{
+public class OrderView extends View {
     Order order;
-    StoreDAO storeDAO;
 
     public OrderView(Order order) {
         this.order = order;
     }
 
-    public  void printView(){
-
+    public void printOrder() {
+        System.out.println(this.order.getBasket().toString());
+        System.out.println("Status: " + this.order.getStatus());
+        System.out.println("Price: " + this.order.getOrderValue());
     }
-
-    public  void printMenu(){
-
-    }
-
 
 }

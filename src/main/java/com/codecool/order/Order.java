@@ -35,9 +35,8 @@ public class Order implements Orderable {
     }
 
     public Basket getBasket() {
-        return this.basket;
+        return basket;
     }
-
     public void setOrderValue(int newValue) {
         this.orderValue = newValue;
     }

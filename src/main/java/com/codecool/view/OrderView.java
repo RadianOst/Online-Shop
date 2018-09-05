@@ -4,13 +4,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.codecool.Product;
+import com.codecool.controller.OrderController;
 import com.codecool.order.Order;
 
 public class OrderView extends View {
     Order order;
+    OrderController orderController;
 
-    public OrderView(Order order) {
+    public OrderView(Order order, OrderController orderController) {
         this.order = order;
+        this.orderController = orderController;
     }
 
     public void printOrder() {
@@ -72,6 +75,41 @@ public class OrderView extends View {
                 System.out.println("Wrong answer! Type 'yes' or 'no'.");
             }
         }
+    }
+
+    public void printOrderMenu() {
+        String[] menuOptions = { "Make order", "Add more products", "Show the basket", "Checkout & pay", "Exit" };
+        int counter = 1;
+
+        for (String option : menuOptions) {
+            System.out.println(counter++ + ". " + option);
+        }
+    }
+
+    public int chooseOption() {
+        System.out.print("\nChoose option: ");
+        int choice = getIntInput();
+
+        switch (choice) {
+        case 1:
+            this.orderController.makeOrder();
+            break;
+        case 2:
+            this.orderController.addMoreProductsToBasket();
+            break;
+        case 3:
+            this.orderController.printOrder();
+            break;
+        case 4:
+            break;
+        case 5:
+            break;
+        default:
+            System.out.println("Unknown choice!");
+        }
+
+        return choice;
+
     }
 
 }

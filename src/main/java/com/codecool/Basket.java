@@ -52,4 +52,15 @@ public class Basket {
     public ArrayList<Product> getBasket(){
         return productList;
     }
+
+    public String toString(){
+        String basketString = "";
+        for ( Product product : productList ){
+            String temString = product.toString();
+            basketString = basketString + temString + "\n";
+        }
+        return basketString;
+    } 
+
+
 }

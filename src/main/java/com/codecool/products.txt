@@ -1,6 +1,0 @@
-butter	100.50  dairy
-milk	200.20  dairy
-bread	50.30	bread
-lamb	20.10	meat
-water	10.00	drink
-juice	5.00	drink

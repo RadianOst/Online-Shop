@@ -1,5 +1,7 @@
 package com.codecool.order;
 
+import com.codecool.Basket;
+
 public interface Orderable {
     public boolean checkout();
 

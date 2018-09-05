@@ -1,8 +1,10 @@
 package com.codecool;
 
+
+
 import java.util.*;
 import java.io.*;
-
+import java.io.File;
 
 
 public class StoreDAO {
@@ -16,8 +18,12 @@ public class StoreDAO {
     }
 
     public void loadTXT(){
+
+        ClassLoader classLoader = getClass().getClassLoader();
+        File fileData = new File(classLoader.getResource("products.txt").getFile());
+        
         try{
-            BufferedReader br = new BufferedReader(new FileReader(new File("products.txt")));
+            BufferedReader br = new BufferedReader(new FileReader(fileData));
             String line = br.readLine();
            
             while (line != null) {
@@ -59,6 +65,9 @@ public class StoreDAO {
         return listOfProduct;
     }
 
+    
+
+
     public void exportToTXT(){
         StringBuilder sBuilder = new StringBuilder();
         for ( int i = 0; i <listOfProduct.size(); i++  ){
@@ -66,12 +75,13 @@ public class StoreDAO {
             String tempName = tempProduct.getName();
             Float tempprice = tempProduct.getPrice();
             String tempProdactCategory = tempProduct.getProductCategory().getName();
-            String str = tempName + String.valueOf(tempprice) + tempProdactCategory;
+            String str = tempName +"\t"+ String.valueOf(tempprice) +"\t"+ tempProdactCategory;
             sBuilder.append(str);
             sBuilder.append("\n");
         }
         String fullTExt = sBuilder.toString();
         try {
+
             FileWriter fw = new FileWriter("products.txt");
             fw.write(fullTExt);
             fw.close();

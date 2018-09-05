@@ -10,9 +10,8 @@ public class OrderView extends View{
     Order order;
     StoreDAO storeDAO;
 
-    public OrderView(StoreDAO storeDAO, Order order) {
+    public OrderView(Order order) {
         this.order = order;
-        this.storeDAO = storeDAO;
     }
 
 }

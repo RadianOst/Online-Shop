@@ -1,5 +1,6 @@
 package com.codecool.order;
 
+import com.codecool.Basket;
 import com.codecool.order.process.CheckoutProcess;
 import com.codecool.order.process.PayProcess;
 
@@ -34,9 +35,8 @@ public class Order implements Orderable {
     }
 
     public Basket getBasket() {
-        return this.basket;
+        return basket;
     }
-
     public void setOrderValue(int newValue) {
         this.orderValue = newValue;
     }

@@ -4,7 +4,7 @@ package com.codecool;
 
 import java.util.*;
 import java.io.*;
-import java.io.File;
+import org.omg.CORBA.portable.OutputStream;
 
 
 public class StoreDAO {
@@ -27,13 +27,10 @@ public class StoreDAO {
             while ((line = br.readLine()) != null) {
             
                 String[] productData = line.split("-");
-        
                 String nameOfProduct = productData[0];
                 Float price = Float.valueOf(productData[1]);
                 String categoryOfProduct = productData[2];
-             
                 String tempName = "";
- 
                 if ( !listOfcategory.contains(categoryOfProduct) ){
                     ProductCategory tempProductCategory = new ProductCategory(categoryOfProduct);
                     Product newProduct = new Product(nameOfProduct, price, tempProductCategory);
@@ -62,24 +59,35 @@ public class StoreDAO {
 
     public void exportToTXT(){
         StringBuilder sBuilder = new StringBuilder();
+
         for ( int i = 0; i <listOfProduct.size(); i++  ){
             Product tempProduct = listOfProduct.get(i);
             String tempName = tempProduct.getName();
             Float tempprice = tempProduct.getPrice();
             String tempProdactCategory = tempProduct.getProductCategory().getName();
-            String str = tempName +"\t"+ String.valueOf(tempprice) +"\t"+ tempProdactCategory;
+            String str = tempName +"-"+ String.valueOf(tempprice) +"-"+ tempProdactCategory;
             sBuilder.append(str);
             sBuilder.append("\n");
         }
         String fullTExt = sBuilder.toString();
+        
+        // BufferedReader br = new BufferedReader(new InputStreamReader(this.getClass().getResourceAsStream("/" + "products.txt"), "UTF-8"));
+            
         try {
-            FileWriter fw = new FileWriter("products.txt");
+            Writer fw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream( "src/main/resources/products.txt"), "UTF-8"));
+            String line = null;
             fw.write(fullTExt);
             fw.close();
+
         } catch (IOException iox) {
             iox.printStackTrace();
         }
     }
+
+    public Product getProduct( Integer idOfProduct ){
+        return listOfProduct.get(idOfProduct);
+    }
+
 
     public String toString(){
         String daoString = "";
@@ -91,5 +99,11 @@ public class StoreDAO {
         }
         return daoString;
     }
+
+
+    public void addProduct(Product product){
+        listOfProduct.add(product);
+    }
+
 
 }

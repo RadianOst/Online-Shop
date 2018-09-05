@@ -7,10 +7,10 @@ public class OrderController {
     Order order;
     OrderView orderView;
 
-    public OrderController() {
-        this.order = new Order();
-        this.orderView = new OrderView(storeDAO, this.order);
-    }
+    // public OrderController() {
+    //     this.order = new Order();
+    //     this.orderView = new OrderView(storeDAO, this.order);
+    // }
 
 
 

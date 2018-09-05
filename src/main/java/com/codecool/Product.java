@@ -62,6 +62,6 @@ class Product{
     }
 
     private Integer generateID(){
-        return productList.size();
+        return productList.size() + 1000;
     }
 }

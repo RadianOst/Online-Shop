@@ -6,6 +6,7 @@ package com.codecool;
 import com.codecool.view.*;
 import com.codecool.StoreDAO;
 
+
 /**
  * Hello world!
  *
@@ -16,12 +17,10 @@ public class Main
     {
         System.out.println( "Hello World!" );
         
-        StoreView storeView = new StoreView();
+        // StoreView storeView = new StoreView();
         StoreDAO storeDao = new StoreDAO();
-        storeView.printView();
-        storeView.printMenu();
-
-        
+        // storeView.printView();
+        // storeView.printMenu();
 
         System.out.println(storeDao.toString());
       

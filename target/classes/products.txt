@@ -4,3 +4,6 @@ bread-50.30-bread
 lamb-20.10-meat
 water-10.0-drink
 juice-5.00-drink
+beef-20.10-meat
+veal-20.10-meat
+pork-20.10-meat

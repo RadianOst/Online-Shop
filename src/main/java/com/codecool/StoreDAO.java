@@ -11,6 +11,7 @@ public class StoreDAO {
 
     private Product newProduct;
     private List <Product> listOfProduct = new ArrayList<Product>();
+    private ProductCategory tempProductCategory;
     
     public StoreDAO(){
         loadTXT();
@@ -21,36 +22,32 @@ public class StoreDAO {
             BufferedReader br = new BufferedReader(new InputStreamReader(this.getClass().getResourceAsStream("/" + "products.txt"), "UTF-8"));
             String line = null;
 
+            HashSet<String> listOfcategory = new HashSet<String>(0);
+
             while ((line = br.readLine()) != null) {
-                
-                String nameOfProduct = "";
-                String categoryOfProduct = null;
+            
                 String[] productData = line.split("-");
-
-                nameOfProduct = productData[0];
+        
+                String nameOfProduct = productData[0];
                 Float price = Float.valueOf(productData[1]);
-                categoryOfProduct = productData[2];
-
-                List<ProductCategory> tempListProductCategory = ProductCategory.getProductCategoryList();
-
+                String categoryOfProduct = productData[2];
+             
                 String tempName = "";
-
-                for ( int i =0; i <tempListProductCategory.size(); i++ ){
-                    tempName =  tempListProductCategory.get(i).getName();
-                    if ( tempName != categoryOfProduct ){
-                        ProductCategory tempProductCategory = new ProductCategory(categoryOfProduct);
-                        newProduct = new Product(nameOfProduct, price, tempProductCategory);
-                        listOfProduct.add(newProduct); 
-                        System.out.println( " test 100 ");
-                        
-                    }else{
-                        ProductCategory tempProductCategory = tempListProductCategory.get(i);
-                        newProduct = new Product(nameOfProduct, price, tempProductCategory);
-                        listOfProduct.add(newProduct); 
-                        System.out.println( " test 200 ");
+ 
+                if ( !listOfcategory.contains(categoryOfProduct) ){
+                    ProductCategory tempProductCategory = new ProductCategory(categoryOfProduct);
+                    Product newProduct = new Product(nameOfProduct, price, tempProductCategory);
+                    listOfProduct.add(newProduct);
+                    listOfcategory.add(categoryOfProduct);
+                }else{
+                    for ( int i = 0; i < ProductCategory.getProductCategoryList().size(); i++  ){
+                        // System.out.println(ProductCategory.getProductCategoryList().size());
+                        if ( ProductCategory.getProductCategoryList().get(i).getName().equals(categoryOfProduct)   ){
+                            newProduct = new Product(nameOfProduct, price, (ProductCategory.getProductCategoryList().get(i)));
+                            listOfProduct.add(newProduct);
+                        }
                     }
                 }
-              
             }
             br.close();
         } catch(IOException e){
@@ -76,7 +73,6 @@ public class StoreDAO {
         }
         String fullTExt = sBuilder.toString();
         try {
-
             FileWriter fw = new FileWriter("products.txt");
             fw.write(fullTExt);
             fw.close();

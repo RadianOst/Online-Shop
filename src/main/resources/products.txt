@@ -1,21 +1,33 @@
 bread-50.3-bread
+<<<<<<< HEAD
 water-10.0-water-0118=02=01
 Coca Cola-1.66-drink
 Pepsi-66.6-drink
 veal-20.45-veal-0118=03=01
+=======
+water-10.0-water-17219=07=01
+Coca Cola-1.66-drink
+Pepsi-66.6-drink
+veal-20.45-veal-17219=08=01
+>>>>>>> dev
 beef-20.1-meat
 pork-20.15-meat
 lamb-20.1-meat
 white chees-10.9-dairy
 cheddar chees-10.9-dairy
 Lancashire chees-10.9-dairy
+<<<<<<< HEAD
 Tylzycki chees-5.5-Tylzycki chees-0118=05=03
+=======
+Tylzycki chees-5.5-Tylzycki chees-17219=10=03
+>>>>>>> dev
 butter-10.5-dairy
 milk 2%-20.2-dairy
 milk 3,2%-20.2-dairy
 milk 1,5%-20.2-dairy
 rrrrrrrrrr-1000.0-drink
 oooooo-3000.0-drink
+<<<<<<< HEAD
 potatoes-100.55-vegetables
 tomatoes-77.22-vegetables
 apples-44.55-fruits
@@ -29,3 +41,6 @@ Moby Dick-33.12-books
 Bible-133.12-books
 rrrrrrrrrr-1000.0-drink
 oooooo-3000.0-drink
+=======
+DUPCIA-0.0-meat
+>>>>>>> dev

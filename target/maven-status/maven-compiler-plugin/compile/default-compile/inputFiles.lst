@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 /home/roman/codecool/20 Java/005TW Shop/Online-Shop/src/main/java/com/codecool/Main.java
 =======
 /home/roman/codecool/20 Java/005TW Shop/Online-Shop/src/main/java/com/codecool/StoreDAO.java
@@ -19,4 +20,23 @@
 /home/roman/codecool/20 Java/005TW Shop/Online-Shop/src/main/java/com/codecool/ProductCategory.java
 /home/roman/codecool/20 Java/005TW Shop/Online-Shop/src/main/java/com/codecool/view/OnlineShopView.java
 /home/roman/codecool/20 Java/005TW Shop/Online-Shop/src/main/java/com/codecool/view/View.java
+>>>>>>> dev
+=======
+/home/radian/Codecool/Java/OnlineShop/src/main/java/com/codecool/Main.java
+/home/radian/Codecool/Java/OnlineShop/src/main/java/com/codecool/OnlineShop.java
+/home/radian/Codecool/Java/OnlineShop/src/main/java/com/codecool/Test.java
+/home/radian/Codecool/Java/OnlineShop/src/main/java/com/codecool/view/OnlineShopView.java
+/home/radian/Codecool/Java/OnlineShop/src/main/java/com/codecool/order/process/PayProcess.java
+/home/radian/Codecool/Java/OnlineShop/src/main/java/com/codecool/ProductCategory.java
+/home/radian/Codecool/Java/OnlineShop/src/main/java/com/codecool/Basket.java
+/home/radian/Codecool/Java/OnlineShop/src/main/java/com/codecool/Product.java
+/home/radian/Codecool/Java/OnlineShop/src/main/java/com/codecool/view/OrderView.java
+/home/radian/Codecool/Java/OnlineShop/src/main/java/com/codecool/order/process/AbstractProcess.java
+/home/radian/Codecool/Java/OnlineShop/src/main/java/com/codecool/order/process/CheckoutProcess.java
+/home/radian/Codecool/Java/OnlineShop/src/main/java/com/codecool/order/Orderable.java
+/home/radian/Codecool/Java/OnlineShop/src/main/java/com/codecool/FeaturedProductCategory.java
+/home/radian/Codecool/Java/OnlineShop/src/main/java/com/codecool/order/Order.java
+/home/radian/Codecool/Java/OnlineShop/src/main/java/com/codecool/controller/OrderController.java
+/home/radian/Codecool/Java/OnlineShop/src/main/java/com/codecool/StoreDAO.java
+/home/radian/Codecool/Java/OnlineShop/src/main/java/com/codecool/view/View.java
 >>>>>>> dev

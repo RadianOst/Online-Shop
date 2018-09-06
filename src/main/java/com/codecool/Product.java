@@ -55,7 +55,7 @@ public class Product{
     public String toString() {
         StringBuilder sBuilder = new StringBuilder();
         sBuilder.append(String.format("ID:%" + ID_TEXT_WIDTH + "d", ID));
-        sBuilder.append(String.format("%-" + NAME_TEXT_WIDTH + "s", name));
+        sBuilder.append(String.format(" | %-" + NAME_TEXT_WIDTH + "s", name));
         sBuilder.append(String.format(" | Price: %" + PRICE_TEXT_WIDTH + ".2f zl", price));
         sBuilder.append(String.format(" | %-" + CATEGORY_TEXT_WIDTH + "s", productCategory.toString()));
         return sBuilder.toString();

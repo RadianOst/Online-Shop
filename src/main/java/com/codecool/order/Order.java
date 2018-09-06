@@ -11,7 +11,6 @@ public class Order implements Orderable {
     private String status;
     private boolean isPaid;
     private boolean isChecked;
-    private float orderValue;
 
     public Order() {
         this.id = 100 + orderCounter;
@@ -31,15 +30,11 @@ public class Order implements Orderable {
     }
 
     public float getOrderValue() {
-        return this.orderValue;
+        return basket.getBasketValue();
     }
 
     public Basket getBasket() {
         return basket;
-    }
-
-    public void setOrderValue(float newValue) {
-        this.orderValue = newValue;
     }
 
     public void setIsChecked(boolean isChecked) {

@@ -37,6 +37,7 @@ public class Order implements Orderable {
     public Basket getBasket() {
         return basket;
     }
+
     public void setOrderValue(float newValue) {
         this.orderValue = newValue;
     }
@@ -51,6 +52,10 @@ public class Order implements Orderable {
 
     public void setStatus(String newStatus) {
         this.status = newStatus;
+    }
+
+    public boolean isEmpty() {
+        return this.basket.getBasket().size() == 0;
     }
 
     public boolean checkout() {

@@ -7,7 +7,7 @@ import java.util.Iterator;
 public class Basket {
 
     ArrayList<Product> productList = new ArrayList<Product>();
-    Iterator<Product> iterator;
+    
 
     public Basket(){
         productList = new ArrayList<Product>();
@@ -62,7 +62,16 @@ public class Basket {
     } 
 
     public int getBasketValue(){
+        ProductIterator prodcutIterarot = new ProductIterator();
+
         return 0;
+
+
     }
+
+
+
+
+
 
 }

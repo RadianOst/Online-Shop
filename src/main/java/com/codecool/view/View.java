@@ -43,7 +43,6 @@ public class View {
         System.out.flush();
     }
 
-<<<<<<< HEAD
     public void waitForSeconds(float amount){
         try{
             Thread.sleep((int)(1000*amount));
@@ -60,21 +59,6 @@ public class View {
     public String askForInput(String askMessage){
         println(String.format("%s", askMessage));
         return getInput();
-=======
-    public void waitForSeconds(int amount) {
-        // try{
-        // TimeUnit.SECONDS.wait(amount);
-        // } catch (InterruptedException e){
-        // e.printStackTrace();
-        // }
-    }
-
-    public String getInput() {
-        Scanner scanner = new Scanner(System.in);
-        String input = scanner.nextLine();
-        // scanner.close();
-        return input;
->>>>>>> dev
     }
 
     public int getIntInput() {

@@ -54,7 +54,7 @@ class OnlineShop{
                 addNewProductCategory();
                 break;
             case 5:
-                // new OrderController().run();
+                new OrderController().run();
                 break;
             case 6:
                 isRunning = false; 

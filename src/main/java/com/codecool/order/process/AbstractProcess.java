@@ -11,27 +11,16 @@ public abstract class AbstractProcess {
     }
 
     public void process(Orderable item) {
-        stepBefore();
         action(item);
-        stepAfter();
     }
 
     public void stepBefore() {
-        if (getClass().getCanonicalName().equals("CheckoutProcess")) {
-            item.setStatus("checked");
-        } else {
-            item.setStatus("finalized");
-        }
+        item.setStatus("checked");
     }
 
     protected abstract void action(Orderable item);
 
     public void stepAfter() {
-        if (getClass().getCanonicalName().equals("CheckoutProcess")) {
-            item.setOrderValue(item.getBasket().getBasketValue());
-        } else {
-            item.setStatus("sent");
-        }
-
+        this.item.setStatus("paid");
     }
 }

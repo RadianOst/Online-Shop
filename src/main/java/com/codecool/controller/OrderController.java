@@ -16,40 +16,42 @@ public class OrderController {
     }
 
     public void makeOrder() {
+        if (this.order == null) {
+            this.order = new Order();
+        }
+
         List<Product> products = orderView.chooseProducts();
         addProductsToBasket(this.order, products);
     }
 
     private void addProductsToBasket(Order order, List<Product> products) {
-        if (this.order != null) {
-            for (Product product : products) {
-                order.getBasket().addProduct(product);
-            }
-        } else {
-            System.out.println("\nBasket is empty!\n");
+        for (Product product : products) {
+            order.getBasket().addProduct(product);
         }
     }
 
     public void printOrder() {
-        if (this.order != null) {
+        if (!this.order.isEmpty()) {
             orderView.printOrder();
         } else {
             System.out.println("\nBasket is empty!\n");
+            this.orderView.getInput();
         }
     }
 
     public void addMoreProductsToBasket() {
-        if (this.order != null) {
+        if (!this.order.isEmpty()) {
             List<Product> products = orderView.chooseProducts();
             addProductsToBasket(this.order, products);
         } else {
-            System.out.println("\nBasket is empty!\n");
+            System.out.println("Order is not made yet! Choose option 'Make order'");
+            this.orderView.getInput();
         }
     }
 
     public void checkoutAndPay() {
 
-        if (this.order != null) {
+        if (!this.order.isEmpty()) {
             this.orderView.printOrderValue();
             String customerData = this.orderView.getCustomerData();
             this.order.checkout();
@@ -57,9 +59,10 @@ public class OrderController {
             int creditCardNumber = this.orderView.getCreditCardNumber();
             this.order.pay();
             this.orderView.printOrder();
-            this.order = null;
+            this.order = new Order();
         } else {
             System.out.println("\nBasket is empty!\n");
+            this.orderView.getInput();
         }
     }
 
@@ -67,7 +70,8 @@ public class OrderController {
         boolean isRunning = true;
 
         while (isRunning) {
-            this.orderView.printListOfProducts();
+            this.orderView.clearConsole();
+            this.orderView.printOrderMenu();
             int choice = this.orderView.chooseOption();
 
             if (choice == 5)

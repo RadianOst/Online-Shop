@@ -1,11 +1,10 @@
-com/codecool/Test.class
 com/codecool/Product.class
 com/codecool/FeaturedProductCategory.class
 com/codecool/order/process/CheckoutProcess.class
 com/codecool/order/process/AbstractProcess.class
 com/codecool/order/Orderable.class
-com/codecool/Main.class
 com/codecool/Basket$1.class
+com/codecool/Main.class
 com/codecool/order/Order.class
 com/codecool/view/OrderView.class
 com/codecool/controller/OrderController.class

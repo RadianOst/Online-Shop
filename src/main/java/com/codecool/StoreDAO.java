@@ -100,9 +100,7 @@ public class StoreDAO {
                 FeaturedProductCategory tempCategory = (FeaturedProductCategory)productCategory;
                 data = tempCategory.getExpirationDate();
                 SimpleDateFormat dateStr = new SimpleDateFormat("yyyy=MM=dd");
-
                 String dateString = dateStr.format(data);
-  
                 String str = tempName +"-"+ String.valueOf(tempprice) +"-"+ tempProdactCategory+"-"+dateString;
                 sBuilder.append(str);
                 sBuilder.append("\n");

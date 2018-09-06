@@ -1,8 +1,10 @@
 /home/darski/codecool/java/tw/tw5/Online-Shop/src/main/java/com/codecool/controller/OrderController.java
 /home/darski/codecool/java/tw/tw5/Online-Shop/src/main/java/com/codecool/Product.java
 /home/darski/codecool/java/tw/tw5/Online-Shop/src/main/java/com/codecool/view/View.java
+/home/darski/codecool/java/tw/tw5/Online-Shop/src/main/java/com/codecool/view/OnlineShopView.java
 /home/darski/codecool/java/tw/tw5/Online-Shop/src/main/java/com/codecool/Main.java
 /home/darski/codecool/java/tw/tw5/Online-Shop/src/main/java/com/codecool/StoreDAO.java
+/home/darski/codecool/java/tw/tw5/Online-Shop/src/main/java/com/codecool/OnlineShop.java
 /home/darski/codecool/java/tw/tw5/Online-Shop/src/main/java/com/codecool/view/OrderView.java
 /home/darski/codecool/java/tw/tw5/Online-Shop/src/main/java/com/codecool/FeaturedProductCategory.java
 /home/darski/codecool/java/tw/tw5/Online-Shop/src/main/java/com/codecool/order/Order.java

@@ -14,7 +14,7 @@ public class Order implements Orderable {
     private float orderValue;
 
     public Order() {
-        this.id = 100 + orderCounter;s
+        this.id = 100 + orderCounter;
         orderCounter++;
         this.basket = new Basket();
         this.status = "processing";

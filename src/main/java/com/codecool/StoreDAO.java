@@ -1,7 +1,7 @@
 package com.codecool;
 
 
-
+import java.util.Date;
 import java.util.*;
 import java.io.*;
 // import org.omg.CORBA.portable.OutputStream;
@@ -27,21 +27,48 @@ public class StoreDAO {
             while ((line = br.readLine()) != null) {
             
                 String[] productData = line.split("-");
-                String nameOfProduct = productData[0];
-                Float price = Float.valueOf(productData[1]);
-                String categoryOfProduct = productData[2];
-                String tempName = "";
-                if ( !listOfcategory.contains(categoryOfProduct) ){
-                    ProductCategory tempProductCategory = new ProductCategory(categoryOfProduct);
-                    Product newProduct = new Product(nameOfProduct, price, tempProductCategory);
-                    listOfProduct.add(newProduct);
-                    listOfcategory.add(categoryOfProduct);
+                if ( productData.length == 3  ){
+                    String nameOfProduct = productData[0];
+                    Float price = Float.valueOf(productData[1]);
+                    String categoryOfProduct = productData[2];
+                    String tempName = "";
+                    if ( !listOfcategory.contains(categoryOfProduct) ){
+                        ProductCategory tempProductCategory = new ProductCategory(categoryOfProduct);
+                        Product newProduct = new Product(nameOfProduct, price, tempProductCategory);
+                        listOfProduct.add(newProduct);
+                        listOfcategory.add(categoryOfProduct);
+                    }else{
+                        for ( int i = 0; i < ProductCategory.getProductCategoryList().size(); i++  ){
+                            if ( ProductCategory.getProductCategoryList().get(i).getName().equals(categoryOfProduct)   ){
+                                newProduct = new Product(nameOfProduct, price, (ProductCategory.getProductCategoryList().get(i)));
+                                listOfProduct.add(newProduct);
+                            }
+                        }
+                    }
                 }else{
-                    for ( int i = 0; i < ProductCategory.getProductCategoryList().size(); i++  ){
-                        // System.out.println(ProductCategory.getProductCategoryList().size());
-                        if ( ProductCategory.getProductCategoryList().get(i).getName().equals(categoryOfProduct)   ){
-                            newProduct = new Product(nameOfProduct, price, (ProductCategory.getProductCategoryList().get(i)));
-                            listOfProduct.add(newProduct);
+                    String nameOfProduct = productData[0];
+                    Float price = Float.valueOf(productData[1]);
+                    String categoryOfProduct = productData[2];
+                    String exDate = productData[3];
+
+                    String[] yyyyMmDd = exDate.split("=");
+                    Integer year = Integer.valueOf(yyyyMmDd[0]); 
+                    Integer mounth = Integer.valueOf(yyyyMmDd[1]);
+                    Integer day = Integer.valueOf(yyyyMmDd[2]);
+
+                    Date tempDate = new Date(year,mounth,day);
+
+                    if ( !listOfcategory.contains(categoryOfProduct) ){
+                        ProductCategory tempProductCategory = new  FeaturedProductCategory(nameOfProduct, tempDate);
+                        Product newProduct = new Product(nameOfProduct, price, tempProductCategory);
+                        listOfProduct.add(newProduct);
+                        listOfcategory.add(categoryOfProduct);
+                    }else{
+                        for ( int i = 0; i < ProductCategory.getProductCategoryList().size(); i++  ){
+                            if ( ProductCategory.getProductCategoryList().get(i).getName().equals(categoryOfProduct)   ){
+                                newProduct = new Product(nameOfProduct, price, (ProductCategory.getProductCategoryList().get(i)));
+                                listOfProduct.add(newProduct);
+                            }
                         }
                     }
                 }
@@ -51,7 +78,6 @@ public class StoreDAO {
             System.out.println("File not found");
         }
     }
-
 
     public List <Product> getListOfProducts(){
         return listOfProduct;

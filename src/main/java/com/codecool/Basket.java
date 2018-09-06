@@ -58,7 +58,7 @@ public class Basket {
         int index = 1;
         for ( Product product : productList ){
             String temString = product.toString();
-            basketString = index + " " + basketString + temString + "\n";
+            basketString = basketString + index + " " + temString + "\n";
             index++;
         }
         return basketString;

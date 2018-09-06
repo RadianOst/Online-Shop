@@ -8,8 +8,8 @@ import com.codecool.controller.OrderController;
 import com.codecool.order.Order;
 
 public class OrderView extends View {
-    Order order;
-    OrderController orderController;
+    private Order order;
+    private OrderController orderController;
 
     public OrderView(Order order, OrderController orderController) {
         this.order = order;

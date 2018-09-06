@@ -24,7 +24,7 @@ public class View {
     }
 
     public void printCenteredError(String error, int width) {
-        printCentered(String.format("!!! %s !!!", error), width);
+        printCentered(String.format("!!! %s !!!\n", error), width);
     }
 
     public void printCentered(String text, int width) {

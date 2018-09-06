@@ -79,7 +79,14 @@ class OnlineShop{
         }
 
         String name = view.askForInput("Please enter a product name:");
-        Float defaultPrice = Float.valueOf(view.askForInput("price"));
+        Float defaultPrice = null;
+        while (defaultPrice == null){
+            try{
+                defaultPrice = Float.valueOf(view.askForInput("Please enter a default price"));
+            } catch (NumberFormatException e){
+                view.printError("Please enter a number in given format: 0.00");
+            }
+        }
         showProductCategories();
         String categoryName = view.askForInput("Please choose a category from the list above:");
         ProductCategory productCategory = null;
@@ -102,7 +109,19 @@ class OnlineShop{
     }
 
     private void addNewProductCategory(){
-        String name = view.askForInput("Please enter a product category name");
+        boolean nameAlreadyExists = true;
+        String name = "";
+        do{
+            name = view.askForInput("Please enter a product category name");
+            try{
+                ProductCategory.getProductCategoryByName(name);
+                view.printError("Given product category already exist");
+            } catch (InputMismatchException e){
+                nameAlreadyExists = false;
+            }
+        }
+        while (nameAlreadyExists);
+
         String isFeaturedString = view.askForInput("Is it a featured category? (yes/no)");
         boolean isFeatured = parseStringToBoolean(isFeaturedString);
 

@@ -37,7 +37,7 @@ public class OnlineShopView extends View{
         }
 
         for (Product product : products){
-            println(String.format("\t%s", product.toString()));
+            println(String.format("   %s", product.toString()));
         }
     }
 
@@ -50,8 +50,16 @@ public class OnlineShopView extends View{
         }
 
         for (ProductCategory category : categories){
-            println(String.format("\t%s", category.toString()));
+            println(String.format("   %s", category.toString()));
         }
+    }
+
+    public String getInput() {
+        String input = scanner.nextLine().trim();
+        while (input.equals("")){
+            printCenteredError("Please enter something", MENU_WIDTH);
+        } 
+        return input;
     }
 
     public Date getDateFromUser(){

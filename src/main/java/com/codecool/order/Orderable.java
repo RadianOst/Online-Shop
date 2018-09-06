@@ -13,7 +13,7 @@ public interface Orderable {
 
     public void setIsChecked(boolean newValue);
 
-    public void setOrderValue(int newValue);
+    public void setOrderValue(float newValue);
 
     public Basket getBasket();
 }

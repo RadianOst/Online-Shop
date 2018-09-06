@@ -62,7 +62,7 @@ public class Basket {
 
     public Float getBasketValue() {
         ProductIterator productIterarot = new ProductIterator();
-        Float sumOfValues = (float) 0.00;
+        Float sumOfValues = 0.00f;
         while (productIterarot.hasNext()) {
             Product tempProduct = productIterarot.next();
             Float price = tempProduct.getPrice();

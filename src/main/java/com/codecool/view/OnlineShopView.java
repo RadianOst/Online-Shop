@@ -30,6 +30,20 @@ public class OnlineShopView extends View{
         printCenteredError(error, MENU_WIDTH);
     }
 
+    public String getInput(){
+        String input = scanner.nextLine().trim();
+        while (input.equals("")){
+            printCenteredError("Please enter something", MENU_WIDTH);
+            input = scanner.nextLine().trim();
+        }
+        return input;
+    }
+
+    public void waitForAction(){ 
+        println("\n\nPress ENTER to continue...\n");
+        super.getInput();
+    }
+
     public void printProducts(List<Product> products){
         if (products.size() == 0){
             println("The store is empty.");
@@ -52,14 +66,6 @@ public class OnlineShopView extends View{
         for (ProductCategory category : categories){
             println(String.format("   %s", category.toString()));
         }
-    }
-
-    public String getInput() {
-        String input = scanner.nextLine().trim();
-        while (input.equals("")){
-            printCenteredError("Please enter something", MENU_WIDTH);
-        } 
-        return input;
     }
 
     public Date getDateFromUser(){

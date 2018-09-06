@@ -1,18 +1,19 @@
 bread-50.3-bread
-water-10.0-water-5819=01=01
+water-10.0-water-17219=07=01
 Coca Cola-1.66-drink
 Pepsi-66.6-drink
-veal-20.45-veal-5819=02=01
+veal-20.45-veal-17219=08=01
 beef-20.1-meat
 pork-20.15-meat
 lamb-20.1-meat
 white chees-10.9-dairy
 cheddar chees-10.9-dairy
 Lancashire chees-10.9-dairy
-Tylzycki chees-5.5-Tylzycki chees-5819=04=03
+Tylzycki chees-5.5-Tylzycki chees-17219=10=03
 butter-10.5-dairy
 milk 2%-20.2-dairy
 milk 3,2%-20.2-dairy
 milk 1,5%-20.2-dairy
 rrrrrrrrrr-1000.0-drink
 oooooo-3000.0-drink
+DUPCIA-0.0-meat

@@ -20,9 +20,11 @@ class OnlineShop{
     private final String UNKNOWN_OPTION_ERROR = "Option not found";
     private final float MENU_DELAY_IN_SECONDS = 1.5f;
     private boolean isRunning = true;
+    private StoreDAO storeDAO;
 
     public OnlineShop(){
         view = new OnlineShopView();
+        storeDAO = new StoreDAO();
     }
 
     public void run(){
@@ -58,13 +60,14 @@ class OnlineShop{
                 break;
             case 6:
                 isRunning = false; 
+                storeDAO.exportToTXT();
                 view.printCentered("See you again!");
                 break;
             default:
                 view.printError(UNKNOWN_OPTION_ERROR);
         }
 
-        view.askForInput("\nPress ENTER to continue...");
+        view.waitForAction();
     }
 
     private void printProductsInStore(){
@@ -99,7 +102,7 @@ class OnlineShop{
             }
         }
 
-        new Product(name, defaultPrice, productCategory);
+        storeDAO.addProduct(new Product(name, defaultPrice, productCategory));
         view.printCentered(String.format("%s created sucessfully!", name));
     }
 

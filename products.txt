@@ -1,0 +1,11 @@
+butter-10.5-dairy
+milk-20.2-dairy
+bread-50.3-bread
+lamb-20.1-meat
+water-10.0-drink
+juice-5.0-drink
+beef-20.1-meat
+veal-20.1-meat
+pork-20.1-meat
+rrrrrrrrrr-1000.0-bread
+oooooo-3000.0-bread

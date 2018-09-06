@@ -1,12 +1,11 @@
 package com.codecool.view;
 
 import java.util.Scanner;
-import java.util.concurrent.TimeUnit;
 
 public class View {
     protected Scanner scanner = new Scanner(System.in);
 
-    public String center(String text, int width){
+    public String center(String text, int width) {
         int padSize = width - text.length();
         int padStart = text.length() + (padSize / 2);
 
@@ -16,7 +15,7 @@ public class View {
         return text;
     }
 
-    public void print(String message){
+    public void print(String message) {
         System.out.print(message);
     }
 
@@ -24,26 +23,27 @@ public class View {
         print(message+"\n");
     }
 
-    public void printCenteredError(String error, int width){
+    public void printCenteredError(String error, int width) {
         printCentered(String.format("!!! %s !!!", error), width);
     }
 
-    public void printCentered(String text, int width){
+    public void printCentered(String text, int width) {
         System.out.print(center(text, width));
     }
-    
-    public void printMenu(String[] options){
-        for (int i = 0; i < options.length; i++){
-            System.out.println(String.format("%d. %s", i+1, options[i]));
+
+    public void printMenu(String[] options) {
+        for (int i = 0; i < options.length; i++) {
+            System.out.println(String.format("%d. %s", i + 1, options[i]));
         }
         System.out.println();
     }
 
-    public void clearConsole(){
-        System.out.print("\033[H\033[2J");  
-        System.out.flush();  
+    public void clearConsole() {
+        System.out.print("\033[H\033[2J");
+        System.out.flush();
     }
 
+<<<<<<< HEAD
     public void waitForSeconds(float amount){
         try{
             Thread.sleep((int)(1000*amount));
@@ -60,6 +60,21 @@ public class View {
     public String askForInput(String askMessage){
         println(String.format("%s", askMessage));
         return getInput();
+=======
+    public void waitForSeconds(int amount) {
+        // try{
+        // TimeUnit.SECONDS.wait(amount);
+        // } catch (InterruptedException e){
+        // e.printStackTrace();
+        // }
+    }
+
+    public String getInput() {
+        Scanner scanner = new Scanner(System.in);
+        String input = scanner.nextLine();
+        // scanner.close();
+        return input;
+>>>>>>> dev
     }
 
     public int getIntInput() {

@@ -3,66 +3,81 @@ package com.codecool;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-
 public class Basket {
 
-    ArrayList<Product> productList = new ArrayList<Product>();
-    Iterator<Product> iterator;
+    private ArrayList<Product> productList = new ArrayList<Product>();
 
-    public Basket(){
+    public Basket() {
         productList = new ArrayList<Product>();
     }
 
-    public Iterator<Product> getIterator(){
+    public Iterator<Product> getIterator() {
         return new ProductIterator();
     }
 
     private class ProductIterator implements Iterator<Product> {
         int index = 0;
-        public boolean hasNext(){
-            if( index < productList.size()){
+
+        public boolean hasNext() {
+            if (index < productList.size()) {
                 return true;
             }
             return false;
         }
 
-        public Product next(){
-            if(this.hasNext()){
+        public Product next() {
+            if (this.hasNext()) {
                 return productList.get(index++);
             }
             return null;
         }
     }
 
-    public void addProduct(Product product){
+    public void addProduct(Product product) {
         productList.add(product);
     }
 
-    public boolean removeProduct( Product product ){
-        if ( productList.contains(product)) {
+    public boolean removeProduct(Product product) {
+        if (productList.contains(product)) {
             productList.remove(product);
             return true;
         }
         return false;
     }
 
-    public ArrayList<Product> getBasket(){
+    public ArrayList<Product> getBasket() {
         return productList;
     }
 
-    public String toString(){
+    public String toString() {
         String basketString = "";
         int index = 1;
-        for ( Product product : productList ){
+        for (Product product : productList) {
             String temString = product.toString();
-            basketString = index + " " + basketString + temString + "\n";
+            basketString = basketString + index + " " + temString + "\n";
             index++;
         }
         return basketString;
-    } 
+    }
 
-    public int getBasketValue(){
-        return 0;
+    public Float getBasketValue() {
+        ProductIterator productIterarot = new ProductIterator();
+        Float sumOfValues = (float) 0.00;
+        while (productIterarot.hasNext()) {
+            Product tempProduct = productIterarot.next();
+            Float price = tempProduct.getPrice();
+            sumOfValues = sumOfValues + price;
+        }
+        return sumOfValues;
+    }
+
+    public int getSizeOfBasket() {
+        ProductIterator productIterarot = new ProductIterator();
+        int sumOfProduct = 0;
+        while (productIterarot.hasNext()) {
+            sumOfProduct = sumOfProduct + 1;
+        }
+        return sumOfProduct;
     }
 
 }

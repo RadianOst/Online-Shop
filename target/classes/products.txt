@@ -1,9 +1,18 @@
-butter-10.50-dairy
-milk-20.20-dairy
-bread-50.30-bread
-lamb-20.10-meat
-water-10.0-drink
-juice-5.00-drink
-beef-20.10-meat
-veal-20.10-meat
-pork-20.10-meat
+bread-50.3-bread
+water-10.0-water-5819=01=01
+Coca Cola-1.66-drink
+Pepsi-66.6-drink
+veal-20.45-veal-5819=02=01
+beef-20.1-meat
+pork-20.15-meat
+lamb-20.1-meat
+white chees-10.9-dairy
+cheddar chees-10.9-dairy
+Lancashire chees-10.9-dairy
+Tylzycki chees-5.5-Tylzycki chees-5819=04=03
+butter-10.5-dairy
+milk 2%-20.2-dairy
+milk 3,2%-20.2-dairy
+milk 1,5%-20.2-dairy
+rrrrrrrrrr-1000.0-drink
+oooooo-3000.0-drink

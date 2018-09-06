@@ -11,7 +11,7 @@ public class Order implements Orderable {
     private String status;
     private boolean isPaid;
     private boolean isChecked;
-    private int orderValue;
+    private float orderValue;
 
     public Order() {
         this.id = 100 + orderCounter;
@@ -30,14 +30,15 @@ public class Order implements Orderable {
         return this.status;
     }
 
-    public int getOrderValue() {
+    public float getOrderValue() {
         return this.orderValue;
     }
 
     public Basket getBasket() {
         return basket;
     }
-    public void setOrderValue(int newValue) {
+
+    public void setOrderValue(float newValue) {
         this.orderValue = newValue;
     }
 
@@ -51,6 +52,10 @@ public class Order implements Orderable {
 
     public void setStatus(String newStatus) {
         this.status = newStatus;
+    }
+
+    public boolean isEmpty() {
+        return this.basket.getBasket().size() == 0;
     }
 
     public boolean checkout() {

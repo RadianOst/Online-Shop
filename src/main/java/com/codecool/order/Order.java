@@ -11,10 +11,10 @@ public class Order implements Orderable {
     private String status;
     private boolean isPaid;
     private boolean isChecked;
-    private int orderValue;
+    private float orderValue;
 
     public Order() {
-        this.id = 100 + orderCounter;
+        this.id = 100 + orderCounter;s
         orderCounter++;
         this.basket = new Basket();
         this.status = "processing";
@@ -30,14 +30,14 @@ public class Order implements Orderable {
         return this.status;
     }
 
-    public int getOrderValue() {
+    public float getOrderValue() {
         return this.orderValue;
     }
 
     public Basket getBasket() {
         return basket;
     }
-    public void setOrderValue(int newValue) {
+    public void setOrderValue(float newValue) {
         this.orderValue = newValue;
     }
 

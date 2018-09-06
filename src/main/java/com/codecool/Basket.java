@@ -1,5 +1,8 @@
 package com.codecool;
 
+
+import com.codecool.Product;
+
 import java.util.ArrayList;
 import java.util.Iterator;
 
@@ -7,7 +10,7 @@ import java.util.Iterator;
 public class Basket {
 
     ArrayList<Product> productList = new ArrayList<Product>();
-    Iterator<Product> iterator;
+    
 
     public Basket(){
         productList = new ArrayList<Product>();
@@ -61,8 +64,25 @@ public class Basket {
         return basketString;
     } 
 
-    public int getBasketValue(){
-        return 0;
+    public Float getBasketValue(){
+        ProductIterator productIterarot = new ProductIterator();
+        Float sumOfValues = (float)0.00;
+        while( productIterarot.hasNext() ){
+            Product tempProduct = productIterarot.next();
+            Float price = tempProduct.getPrice();
+            sumOfValues = sumOfValues + price;
+        }
+        return sumOfValues;
     }
+
+    public int getSizeOfBasket(){
+        ProductIterator productIterarot = new ProductIterator();
+        int sumOfProduct = 0;
+        while( productIterarot.hasNext() ){
+            sumOfProduct = sumOfProduct + 1;
+        }
+        return sumOfProduct;
+    }
+
 
 }

@@ -1,17 +1,18 @@
 package com.codecool;
 
-
 import java.util.Date;
+import java.text.SimpleDateFormat;
 import java.util.*;
 import java.io.*;
 // import org.omg.CORBA.portable.OutputStream;
 
+import com.codecool.Product;
 
 public class StoreDAO {
 
     private Product newProduct;
     private List <Product> listOfProduct = new ArrayList<Product>();
-    private ProductCategory tempProductCategory;
+
     
     public StoreDAO(){
         loadTXT();
@@ -91,14 +92,29 @@ public class StoreDAO {
             String tempName = tempProduct.getName();
             Float tempprice = tempProduct.getPrice();
             String tempProdactCategory = tempProduct.getProductCategory().getName();
-            String str = tempName +"-"+ String.valueOf(tempprice) +"-"+ tempProdactCategory;
-            sBuilder.append(str);
-            sBuilder.append("\n");
+            Date data;
+            
+            ProductCategory productCategory =  tempProduct.getProductCategory();
+
+            if (productCategory instanceof FeaturedProductCategory){
+                FeaturedProductCategory tempCategory = (FeaturedProductCategory)productCategory;
+                data = tempCategory.getExpirationDate();
+                SimpleDateFormat dateStr = new SimpleDateFormat("yyyy=MM=dd");
+
+                String dateString = dateStr.format(data);
+  
+                String str = tempName +"-"+ String.valueOf(tempprice) +"-"+ tempProdactCategory+"-"+dateString;
+                sBuilder.append(str);
+                sBuilder.append("\n");
+            }else{
+                String str = tempName +"-"+ String.valueOf(tempprice) +"-"+ tempProdactCategory;
+                sBuilder.append(str);
+                sBuilder.append("\n");
+            }
         }
+
         String fullTExt = sBuilder.toString();
         
-        // BufferedReader br = new BufferedReader(new InputStreamReader(this.getClass().getResourceAsStream("/" + "products.txt"), "UTF-8"));
-            
         try {
             Writer fw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream( "src/main/resources/products.txt"), "UTF-8"));
             String line = null;
@@ -133,3 +149,4 @@ public class StoreDAO {
 
 
 }
+

@@ -9,5 +9,3 @@ veal-20.1-meat
 pork-20.1-meat
 rrrrrrrrrr-1000.0-bread
 oooooo-3000.0-bread
-rrrrrrrrrr-1000.0-bread
-oooooo-3000.0-bread

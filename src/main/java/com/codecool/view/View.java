@@ -1,11 +1,10 @@
 package com.codecool.view;
 
-import com.codecool.Product;
-import java.util.*;
 import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 
 public class View {
+    protected Scanner scanner = new Scanner(System.in);
 
     public String center(String text, int width){
         int padSize = width - text.length();
@@ -21,6 +20,10 @@ public class View {
         System.out.print(message);
     }
 
+    public void println(String message){
+        print(message+"\n");
+    }
+
     public void printCenteredError(String error, int width){
         printCentered(String.format("!!! %s !!!", error), width);
     }
@@ -33,6 +36,7 @@ public class View {
         for (int i = 0; i < options.length; i++){
             System.out.println(String.format("%d. %s", i+1, options[i]));
         }
+        System.out.println();
     }
 
     public void clearConsole(){
@@ -40,29 +44,31 @@ public class View {
         System.out.flush();  
     }
 
-    public void waitForSeconds(int amount){
-        // try{
-        //     TimeUnit.SECONDS.wait(amount);
-        // } catch (InterruptedException e){
-        //     e.printStackTrace();
-        // }
+    public void waitForSeconds(float amount){
+        try{
+            Thread.sleep((int)(1000*amount));
+            // TimeUnit.SECONDS.wait(amount);
+        } catch (InterruptedException e){
+            e.printStackTrace();
+        }
     }
 
     public String getInput() {
-        Scanner scanner = new Scanner(System.in);
-        String input = scanner.nextLine();
-        scanner.close();
-        return input;
+        return scanner.nextLine().trim();
+    }
+
+    public String askForInput(String askMessage){
+        println(String.format("%s", askMessage));
+        return getInput();
     }
 
     public int getIntInput() {
-        Scanner intScanner = new Scanner(System.in);
         String intString;
         boolean isNotInteger = true;
         int number = 0;
 
         while (isNotInteger) {
-            intString = intScanner.nextLine();
+            intString = getInput();
 
             try {
                 number = Integer.parseInt(intString);

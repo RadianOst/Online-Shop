@@ -3,26 +3,65 @@ package com.codecool;
 import java.util.List;
 import java.util.ArrayList;
 
-class Product{
+public class Product{
     private String name;
-    private Float defaultPrice;
+    private Float price;
     private ProductCategory productCategory;
     private Integer ID;
     private static List<Product> productList = new ArrayList<Product>();
 
-    public Product(){
-        
-    }
+    private final int ID_TEXT_WIDTH = 4;
+    private final int NAME_TEXT_WIDTH = 15;
+    private final int PRICE_TEXT_WIDTH = 6;
+    private final int CATEGORY_TEXT_WIDTH = 15;
 
-    public Product(String name, Float defaultPrice, ProductCatgory productCategory){
+    public Product(String name, Float defaultPrice, ProductCategory productCategory){
         this.name = name;
-        this.defaultPrice = defaultPrice;
+        price = defaultPrice;
         this.productCategory = productCategory;
         ID = generateID();
         productList.add(this);
     }
 
+    public String getName(){
+        return name;
+    }
+
+    public Float getPrice(){
+        return price;
+    }
+
+    public ProductCategory getProductCategory(){
+        return productCategory;
+    }
+
+    public static List<Product> getAllProducts(){
+        return productList;
+    }
+
+    public static List<Product> getAllProductsByCategory(ProductCategory productCategory){
+        List<Product> productsByCategoryList = new ArrayList<Product>();
+
+        for (Product product : productList){
+            if (product.getProductCategory().equals(productCategory)){
+                productsByCategoryList.add(product);
+            }
+        }
+
+        return productsByCategoryList;
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sBuilder = new StringBuilder();
+        sBuilder.append(String.format("ID:%" + ID_TEXT_WIDTH + "d", ID));
+        sBuilder.append(String.format("%-" + NAME_TEXT_WIDTH + "s", name));
+        sBuilder.append(String.format(" | Price: %" + PRICE_TEXT_WIDTH + ".2f zl", price));
+        sBuilder.append(String.format(" | %-" + CATEGORY_TEXT_WIDTH + "s", productCategory.toString()));
+        return sBuilder.toString();
+    }
+
     private Integer generateID(){
-        return productList.size();
+        return productList.size() + 1000;
     }
 }

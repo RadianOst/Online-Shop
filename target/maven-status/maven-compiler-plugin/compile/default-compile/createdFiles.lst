@@ -1,1 +1,13 @@
+com/codecool/Product.class
+com/codecool/FeaturedProductCategory.class
+com/codecool/order/process/CheckoutProcess.class
+com/codecool/order/process/AbstractProcess.class
+com/codecool/order/Orderable.class
 com/codecool/Main.class
+com/codecool/Basket$1.class
+com/codecool/order/Order.class
+com/codecool/order/process/PayProcess.class
+com/codecool/ProductCategory.class
+com/codecool/Basket$ProductIterator.class
+com/codecool/view/View.class
+com/codecool/Basket.class

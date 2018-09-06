@@ -46,7 +46,7 @@ public class StoreDAO {
                             }
                         }
                     }
-                }else{
+                }else if (productData.length > 3){
                     String nameOfProduct = productData[0];
                     Float price = Float.valueOf(productData[1]);
                     String categoryOfProduct = productData[2];
